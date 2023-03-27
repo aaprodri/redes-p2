@@ -204,7 +204,7 @@ class Conexao:
         """
         Usado pela camada de aplicação para fechar a conexão
         """
-
+	
         dst_addr, dst_port, src_addr, src_port = self.id_conexao
         segmento = make_header(src_port, dst_port, self.seq_no, self.ack_no, FLAGS_FIN)
         self.servidor.rede.enviar(fix_checksum(segmento, src_addr, dst_addr), dst_addr)
